@@ -1,4 +1,4 @@
-public class FromSwitchToIf3 {
+public class FromSwitchToIf3 {//과제7
 	public static void main(String[] args) {
 		int score = 5;
 		/* 예제 (break가 없으므로 이후 조건문을 모두 실행한다.)

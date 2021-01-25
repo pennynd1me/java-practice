@@ -1,6 +1,6 @@
-public class FromSwitchToIf5 {
+public class FromSwitchToIf5 {//과제11
 	public static void main(String[] args) {
-		int score = 59;
+		int score = 88;
 		char grade = ' ';
 		/* 예제
 		switch(score) {
@@ -29,11 +29,17 @@ public class FromSwitchToIf5 {
 		}
 		*/
 		//로직
-		grade = (100 >= score && score >= 90) ? 'A'
-				: (89 >= score && score >= 80) ? 'B'
-				: (79 >= score && score >= 70) ? 'C'
-				: (69 >= score && score >= 60) ? 'D'
-				: 'F';
+		if(100 >= score && score >= 90) {
+			grade = 'A';
+		} else if(89 >= score && score >= 80) {
+			grade = 'B';
+		} else if(79 >= score && score >= 70) {
+			grade = 'C';
+		} else if(69 >= score && score >= 60) {
+			grade = 'D';
+		} else {
+			grade = 'F';
+		}
 		System.out.println("당신의 학점은 " + grade + "입니다.");
 	}
 }

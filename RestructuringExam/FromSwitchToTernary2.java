@@ -1,4 +1,4 @@
-public class FromSwitchToTernary2 {
+public class FromSwitchToTernary2 {//과제6
 	public static void main(String[] args) {
 		//'A', 'B', 'C', 'D'중의 하나를 얻을 수 있다.
 		char ch = (char)(Math.random() * 4 + 'A');

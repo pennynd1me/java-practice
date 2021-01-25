@@ -1,4 +1,4 @@
-public class FromSwitchToTernary4 {
+public class FromSwitchToTernary4 {//과제10
 	public static void main(String[] args) {
 		int score = (int)(Math.random() * 10) + 1;
 		score *= 100;

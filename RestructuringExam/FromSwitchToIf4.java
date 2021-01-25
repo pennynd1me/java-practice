@@ -1,4 +1,4 @@
-public class FromSwitchToIf4 {
+public class FromSwitchToIf4 {//과제9
 	public static void main(String[] args) {
 		int score = (int)(Math.random() * 10) + 1;
 		score *= 100;

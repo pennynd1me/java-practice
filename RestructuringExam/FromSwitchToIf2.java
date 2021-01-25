@@ -1,4 +1,4 @@
-public class FromSwitchToIf2 {
+public class FromSwitchToIf2 { //과제5
 	public static void main(String[] args) {
 		//'A', 'B', 'C', 'D'중의 하나를 얻을 수 있다.
 		char ch = (char)(Math.random() * 4 + 'A');

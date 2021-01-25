@@ -1,14 +1,9 @@
-public class FromWhileToDoWhile {//과제16
+public class FromForToDoWhile2 {//과제24
 	public static void main(String[] args) {
 		/* 예제
-		int i = 2;
-		while(i <= 9) {
-			int j = 1;
-			while(j <= 9) {
-				System.out.println(i + "*" + j + "=" + i*j);
-				j++;
-			}
-			i++;
+		int i;
+		for(i = 1; i <= 10; i++) {
+			sum += i;
 		}
 		*/
 		int i = 2;

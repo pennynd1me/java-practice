@@ -20,13 +20,13 @@ public class FromSwitchToIf {
 		//로직
 		int score = (int)(Math.random() * 10) + 1;
 		if(score == 1) {
-			System.out.println("당신의 점수는 " + (score * 100) + "이고, 상품은 " + "자전거" + " 입니다.");
+			System.out.println("당신의 점수는 " + (score * 100) + "이고, 상품은 " + "자전거" + "입니다.");
 		} else if(score == 2) {
-			System.out.println("당신의 점수는 " + (score * 100) + "이고, 상품은 " + "TV" + " 입니다.");
+			System.out.println("당신의 점수는 " + (score * 100) + "이고, 상품은 " + "TV" + "입니다.");
 		} else if(score == 3) {
-			System.out.println("당신의 점수는 " + (score * 100) + "이고, 상품은 " + "노트북" + " 입니다.");
+			System.out.println("당신의 점수는 " + (score * 100) + "이고, 상품은 " + "노트북" + "입니다.");
 		} else if(score == 4) {
-			System.out.println("당신의 점수는 " + (score * 100) + "이고, 상품은 " + "자동차" + " 입니다.");
+			System.out.println("당신의 점수는 " + (score * 100) + "이고, 상품은 " + "자동차" + "입니다.");
 		} else {
 			System.out.println("죄송하지만 당신의 점수에 해당 상품이 없습니다.");
 		}

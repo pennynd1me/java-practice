@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class FromDoWhileToFor { //과제20
+public class Q20FromDoWhileToFor { //과제20
 	public static void main(String[] args) throws IOException {
 		System.out.println("문장을 입력하세요.");
 		System.out.println("입력을 마치려면 x를 입력하세요.");

@@ -1,4 +1,4 @@
-public class FromWhileToFor2 { //과제17
+public class Q18FromWhileToDoWhile { //과제18
 	public static void main(String[] args) {
 		/*
 		int sum = 0;
@@ -9,9 +9,10 @@ public class FromWhileToFor2 { //과제17
 		}
 		*/
 		int sum = 0;
-		for (int i = 1; sum + i <= 100; ++i) {
-			sum += i;
+		int i = 0;
+		do {
+			sum += ++i;
 			System.out.println(i + "-" + sum);
-		}
+		} while(sum + i <= 100);
 	}
 }

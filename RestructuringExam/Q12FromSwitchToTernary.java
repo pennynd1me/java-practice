@@ -1,4 +1,4 @@
-public class FromSwitchToTernary5 { //과제12
+public class Q12FromSwitchToTernary { //과제12
 	public static void main(String[] args) {
 		int score = 60;
 		char grade = ' ';

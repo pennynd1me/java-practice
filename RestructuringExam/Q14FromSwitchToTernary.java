@@ -1,6 +1,6 @@
-public class FromSwitchToIf6 { //과제13
+public class Q14FromSwitchToTernary { //과제14
 	public static void main(String[] args) {
-		int score = 100;
+		int score = 89;
 		char grade = ' ';
 		/* 예제
 		switch(score/10) {
@@ -21,17 +21,11 @@ public class FromSwitchToIf6 { //과제13
 			grade = 'F';
 		}
 		*/
-		if(score/10 == 10 || score/10 == 9) {
-			grade = 'A';
-		} else if(score/10 == 8) {
-			grade = 'B';
-		} else if(score/10 == 7) {
-			grade = 'C';
-		} else if(score/10 == 6) {
-			grade = 'D';
-		} else {
-			grade = 'F';
-		}
+		grade = (score/10 == 10 || score/10 == 9) ? 'A'
+				: (score/10 == 8) ? 'B'
+				: (score/10 == 7) ? 'C'
+				: (score/10 == 6) ? 'D'
+				: 'F';
 		System.out.println("당신의 학점은 " + grade + "입니다.");
 	}
 }

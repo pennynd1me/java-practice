@@ -1,4 +1,4 @@
-public class FromSwitchToIf {//과제3
+public class Q03FromSwitchToIf {//과제3
 	public static void main(String[] args) {
 		/* 예제
 		switch(score*100) {

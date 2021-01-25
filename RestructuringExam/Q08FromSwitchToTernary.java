@@ -1,4 +1,4 @@
-public class FromSwitchToTernary3 {//과제8
+public class Q08FromSwitchToTernary {//과제8
 	public static void main(String[] args) {
 		int score = 1;
 		String msg = "";

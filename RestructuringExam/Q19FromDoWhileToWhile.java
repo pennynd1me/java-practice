@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class FromDoWhileToWhile { //과제19
+public class Q19FromDoWhileToWhile { //과제19
 	public static void main(String[] args) throws IOException {
 		int input = 0;
 		System.out.println("문장을 입력하세요.");

@@ -1,4 +1,4 @@
-public class FromSwitchToIf3_1 {
+public class P01FromSwitchToIf {
 	public static void main(String[] args) {
 		int noOfDays = 28;
 		switch (noOfDays) // Switch expression (javagoal.com 예제)

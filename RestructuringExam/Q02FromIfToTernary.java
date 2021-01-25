@@ -1,4 +1,4 @@
-public class FromIfToTernary { //과제2
+public class Q02FromIfToTernary { //과제2
 	public static void main(String[] args) {
 		for(int score = 79; score <= 100; score++) {
 		//int score = 82;

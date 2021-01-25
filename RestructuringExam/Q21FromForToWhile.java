@@ -1,4 +1,4 @@
-public class FromForToDoWhile {//과제22
+public class Q21FromForToWhile {//과제21
 	public static void main(String[] args) {
 		int sum = 0;
 		/* 예제
@@ -8,9 +8,9 @@ public class FromForToDoWhile {//과제22
 		}
 		*/
 		int i = 1;
-		do {
+		while(i <= 10) {
 			sum += i++;
-		} while(i <= 10);
+		}
 		System.out.println((i - 1) + " 까지의 합: " + sum);
 	}
 }

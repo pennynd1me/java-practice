@@ -1,4 +1,4 @@
-public class FromSwitchToIf5 {//과제11
+public class Q11FromSwitchToIf {//과제11
 	public static void main(String[] args) {
 		int score = 88;
 		char grade = ' ';

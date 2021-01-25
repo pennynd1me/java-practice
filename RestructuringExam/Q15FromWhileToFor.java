@@ -1,4 +1,4 @@
-public class FromWhileToFor {//과제15
+public class Q15FromWhileToFor {//과제15
 	public static void main(String[] args) {
 		/* 예제
 		int i = 2;

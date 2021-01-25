@@ -1,4 +1,4 @@
-public class PrintFooBarBaz {
+public class PrintFooBarBaz { //과제25
 	public static void main(String[] args) {
 		for(int i = 1; i <= 105; i++) {
 			String msg = "";

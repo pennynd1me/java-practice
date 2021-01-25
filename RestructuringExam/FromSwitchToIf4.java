@@ -18,15 +18,19 @@ public class FromSwitchToIf4 {
 		}
 		*/
 		//로직
-		if(score == 1000) {
-			msg += "자동차, " + "TV, " + "노트북, " + "자전거, " + "볼펜";
-		} else if(score == 900) {
-			msg += "TV, " + "노트북, " + "자전거, " + "볼펜";
-		} else if(score == 800) {
-			msg += "노트북, " + "자전거, " + "볼펜";
-		} else if(score == 700) {
-			msg += "자전거, " + "볼펜";
-		} else {
+		if(score >= 1000) {
+			msg += "자동차, ";
+		}
+		if(score >= 900) {
+			msg += "TV, ";
+		}
+		if(score >= 800) {
+			msg += "노트북, ";
+		}
+		if(score >= 700) {
+			msg += "자전거, ";
+		}
+		if(score >= 0) {
 			msg += "볼펜";
 		}
 		System.out.println(msg + "입니다.");

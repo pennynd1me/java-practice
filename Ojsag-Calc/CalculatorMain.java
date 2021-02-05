@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Calculator {
+public class CalculatorMain {
 	public static void main(String[] args) {
 		String op1 = args[0];
+		String op = args[1];
 		String op2 = args[2];
 
 		int digitgap = 0;
@@ -51,9 +52,9 @@ public class Calculator {
 			}
 		}
 		// op2가 더 큰 수 인지 비교(뺄셈용)
-		if(op1Int.size() < op2Int.size()) {
+		if (op1Int.size() < op2Int.size()) {
 			isop2Bigger = true;
-		}else if(op1Int.size() == op2Int.size()){
+		} else if (op1Int.size() == op2Int.size()) {
 			isop2Bigger = op1Int.get(0) < op2Int.get(0) ? true : false;
 		}
 		// 정수 자리수 0 채우기
@@ -79,7 +80,7 @@ public class Calculator {
 			}
 		// 연산하여 resultList에 값 넣기
 		// 덧셈 연산
-		if (args[1].equals("add")) {
+		if (op.equals("add")) {
 			// 소수부 연산
 			for (int i = op1Frac.size() - 1; i >= 0; i--) {
 				sum = op1Frac.get(i) - '0' + op2Frac.get(i) - '0' + overTen;
@@ -98,9 +99,9 @@ public class Calculator {
 				resultInt.add(0, '1');
 			}
 			// 뺄셈 연산
-		} else if (args[1].equals("sub")) {
+		} else if (op.equals("sub")) {
 			if (isop2Bigger) {
-				//op2가 더 크다면, 큰수에서 작은수를 빼고 앞에 -만 추가
+				// op2가 더 크다면, 큰수(op2)에서 작은수(op1)를 빼고 앞에 -만 추가
 				// 소수부 연산
 				for (int i = op1Frac.size() - 1; i >= 0; i--) {
 					sum = op2Frac.get(i) - op1Frac.get(i) + underZero;
@@ -125,7 +126,8 @@ public class Calculator {
 					resultInt.add(0, (char) (sum + '0'));
 				}
 				resultInt.add(0, '-');
-			} else {
+			} else{
+				// op1가 더 크다면, 큰수(op1)에서 작은수(op2)를 뺀다.
 				// 소수부 연산
 				for (int i = op1Frac.size() - 1; i >= 0; i--) {
 					sum = op1Frac.get(i) - op2Frac.get(i) + underZero;
@@ -158,9 +160,9 @@ public class Calculator {
 			}
 			op1Frac.forEach(System.out::print);
 			System.out.println();
-			if (args[1].equals("add")) {
+			if (op.equals("add")) {
 				System.out.print("+ ");
-			} else if (args[1].equals("sub")) {
+			} else if (op.equals("sub")) {
 				System.out.print("- ");
 			}
 			op2Int.forEach(System.out::print);
@@ -169,7 +171,7 @@ public class Calculator {
 			}
 			op2Frac.forEach(System.out::print);
 			System.out.println();
-			for (int i = 0; i < Math.max(args[0].length(), args[2].length()) + 4; i++) {
+			for (int i = 0; i < Math.max(op1.length(), op2.length()) + 4; i++) {
 				System.out.print("-");
 			}
 			System.out.println();

@@ -55,7 +55,12 @@ public class CalculatorMain {
 		if (op1Int.size() < op2Int.size()) {
 			isop2Bigger = true;
 		} else if (op1Int.size() == op2Int.size()) {
-			isop2Bigger = op1Int.get(0) < op2Int.get(0) ? true : false;
+			for (int i = 0; i < op1Int.size(); i++) {
+				if (isop2Bigger) {
+					break;
+				}
+				isop2Bigger = op1Int.get(i) < op2Int.get(i) ? true : false;
+			}
 		}
 		// 정수 자리수 0 채우기
 		digitgap = Math.max(op1Int.size(), op2Int.size()) - Math.min(op1Int.size(), op2Int.size());
@@ -74,10 +79,11 @@ public class CalculatorMain {
 			for (int i = 0; i < digitgap; i++) {
 				op1Frac.add('0');
 			}
-		} else
+		} else {
 			for (int i = 0; i < digitgap; i++) {
 				op2Frac.add('0');
 			}
+		}
 		// 연산하여 resultList에 값 넣기
 		// 덧셈 연산
 		if (op.equals("add")) {
@@ -126,7 +132,7 @@ public class CalculatorMain {
 					resultInt.add(0, (char) (sum + '0'));
 				}
 				resultInt.add(0, '-');
-			} else{
+			} else {
 				// op1가 더 크다면, 큰수(op1)에서 작은수(op2)를 뺀다.
 				// 소수부 연산
 				for (int i = op1Frac.size() - 1; i >= 0; i--) {

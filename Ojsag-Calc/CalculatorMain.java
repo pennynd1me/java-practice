@@ -11,10 +11,12 @@ public class CalculatorMain {
 		int sum = 0;
 		int overTen = 0;
 		int underZero = 0;
+		int printdigit = 0;
 
 		boolean isop1Decimal = false;
 		boolean isop2Decimal = false;
 		boolean isop2Bigger = false;
+		boolean isop1op2IntEqual = false;
 
 		List<Character> op1Int = new ArrayList<>();
 		List<Character> op1Frac = new ArrayList<>();
@@ -22,7 +24,23 @@ public class CalculatorMain {
 		List<Character> op2Frac = new ArrayList<>();
 		List<Character> resultInt = new ArrayList<>();
 		List<Character> resultFrac = new ArrayList<>();
-
+		// op1이나 op2가 0으로 시작한다면 없애버리기
+		if (op1.startsWith("0")) {
+			while (op1.startsWith("0")) {
+				if (op1.startsWith("0") != true) {
+					break;
+				}
+				op1 = op1.substring(op1.indexOf('0') + 1);
+			}
+		}
+		if (op2.startsWith("0")) {
+			while (op2.startsWith("0")) {
+				if (op2.startsWith("0") != true) {
+					break;
+				}
+				op2 = op2.substring(op2.indexOf('0') + 1);
+			}
+		}
 		// 정수형, 소수형인지 검증하여 list에 값 add하기
 		if (op1.contains(".")) {
 			for (int i = 0; i < op1.indexOf("."); i++) {
@@ -37,7 +55,6 @@ public class CalculatorMain {
 				op1Int.add(op1.charAt(i));
 			}
 		}
-
 		if (op2.contains(".")) {
 			for (int i = 0; i < op2.indexOf("."); i++) {
 				op2Int.add(op2.charAt(i));
@@ -58,9 +75,19 @@ public class CalculatorMain {
 		if (op1Int.size() == op2Int.size()) {
 			for (int i = 0; i < op1Int.size(); i++) {
 				if (isop2Bigger) {
+					isop1op2IntEqual = false;
 					break;
 				}
-				isop2Bigger = op1Int.get(i) < op2Int.get(i) ? true : false;
+				if(op1Int.get(i) > op2Int.get(i)) {
+					isop1op2IntEqual = false;
+					isop2Bigger = false;
+					break;
+				} else if((op1Int.get(i) == op2Int.get(i))) {
+					isop1op2IntEqual = true;
+				} else {
+					isop1op2IntEqual = false;
+					isop2Bigger = true;
+				}
 			}
 		}
 		// 정수 자리수 0 채우기
@@ -85,11 +112,20 @@ public class CalculatorMain {
 				op2Frac.add('0');
 			}
 		}
-		for (int i = 0; i < op1Frac.size(); i++) {
-			if (isop2Bigger) {
-				break;
+		// op1과 op2의 정수값이 같을 때, 소수점으로 op2가 큰 수 인지 비교.
+		if (isop1op2IntEqual) {
+			for (int i = 0; i < op1Frac.size(); i++) {
+				if (isop2Bigger) {
+					break;
+				}
+				if(op1Frac.get(i) > op2Frac.get(i)) {
+					isop2Bigger = false;
+					break;
+				} else if((op1Frac.get(i) == op2Frac.get(i))) {
+				} else {
+					isop2Bigger = true;
+				}
 			}
-			isop2Bigger = op1Frac.get(i) < op2Frac.get(i) ? true : false;
 		}
 		// 연산하여 resultList에 값 넣기
 		// 덧셈 연산
@@ -171,6 +207,18 @@ public class CalculatorMain {
 		}
 		// 출력
 		System.out.print("  ");
+		//op1Int의 앞 0을 없앤다.
+		while (op1Int.get(0) == '0') {
+			if (op1Int.get(0) != '0' || op1Int.size() == 1) {
+				break;
+			}
+			op1Int.remove(0);
+			printdigit++;
+		}
+		for(int i = 0; i < printdigit; i++) {
+			System.out.print(" ");
+		}
+		printdigit = 0;
 		op1Int.forEach(System.out::print);
 		if (isop1Decimal == true || isop2Decimal == true) {
 			System.out.print(".");
@@ -184,6 +232,18 @@ public class CalculatorMain {
 		} else if (op.equals("mul")) {
 			System.out.print("* ");
 		}
+		//op2Int의 앞 0을 없앤다.
+		while (op2Int.get(0) == '0') {
+			if (op2Int.get(0) != '0' || op2Int.size() == 1) {
+				break;
+			}
+			op2Int.remove(0);
+			printdigit++;
+		}
+		for(int i = 0; i < printdigit; i++) {
+			System.out.print(" ");
+		}
+		printdigit = 0;
 		op2Int.forEach(System.out::print);
 		if (isop1Decimal == true || isop2Decimal == true) {
 			System.out.print(".");
@@ -199,6 +259,28 @@ public class CalculatorMain {
 		} else {
 			System.out.print("  ");
 		}
+		// resultInt의 앞 0을 없앤다.
+		if (isop2Bigger) {
+			while (resultInt.get(1) == '0') {
+				if (resultInt.get(1) != '0' || resultInt.size() == 2) {
+					break;
+				}
+				resultInt.remove(1);
+				printdigit++;
+			}
+		} else {
+			while (resultInt.get(0) == '0') {
+				if (resultInt.get(0) != '0' || resultInt.size() == 1) {
+					break;
+				}
+				resultInt.remove(0);
+				printdigit++;
+			}
+		}
+		for (int i = 0; i < printdigit; i++) {
+			System.out.print(" ");
+		}
+		printdigit = 0;
 		resultInt.forEach(System.out::print);
 		if (isop1Decimal == true || isop2Decimal == true) {
 			System.out.print(".");

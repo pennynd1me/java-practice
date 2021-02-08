@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Day2 {
+public class Day02 {
 
 	static void solve(double meal_cost, int tip_percent, int tax_percent) {
 		double total_cost = meal_cost + (meal_cost*(tip_percent)/100)

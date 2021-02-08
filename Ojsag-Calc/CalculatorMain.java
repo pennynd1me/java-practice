@@ -54,7 +54,8 @@ public class CalculatorMain {
 		// op2가 더 큰 수 인지 비교(뺄셈용)
 		if (op1Int.size() < op2Int.size()) {
 			isop2Bigger = true;
-		} else if (op1Int.size() == op2Int.size()) {
+		}
+		if (op1Int.size() == op2Int.size()) {
 			for (int i = 0; i < op1Int.size(); i++) {
 				if (isop2Bigger) {
 					break;
@@ -83,6 +84,12 @@ public class CalculatorMain {
 			for (int i = 0; i < digitgap; i++) {
 				op2Frac.add('0');
 			}
+		}
+		for (int i = 0; i < op1Frac.size(); i++) {
+			if (isop2Bigger) {
+				break;
+			}
+			isop2Bigger = op1Frac.get(i) < op2Frac.get(i) ? true : false;
 		}
 		// 연산하여 resultList에 값 넣기
 		// 덧셈 연산
@@ -158,39 +165,44 @@ public class CalculatorMain {
 					resultInt.add(0, (char) (sum + '0'));
 				}
 			}
-			// 출력
-			System.out.print("  ");
-			op1Int.forEach(System.out::print);
-			if (isop1Decimal == true || isop2Decimal == true) {
-				System.out.print(".");
-			}
-			op1Frac.forEach(System.out::print);
-			System.out.println();
-			if (op.equals("add")) {
-				System.out.print("+ ");
-			} else if (op.equals("sub")) {
-				System.out.print("- ");
-			}
-			op2Int.forEach(System.out::print);
-			if (isop1Decimal == true || isop2Decimal == true) {
-				System.out.print(".");
-			}
-			op2Frac.forEach(System.out::print);
-			System.out.println();
-			for (int i = 0; i < Math.max(op1.length(), op2.length()) + 4; i++) {
-				System.out.print("-");
-			}
-			System.out.println();
-			if (overTen == 1 || isop2Bigger) {
-				System.out.print(" ");
-			} else {
-				System.out.print("  ");
-			}
-			resultInt.forEach(System.out::print);
-			if (isop1Decimal == true || isop2Decimal == true) {
-				System.out.print(".");
-			}
-			resultFrac.forEach(System.out::print);
+			// 곱셈 연산
+		} else if (op.equals("mul")) {
+
 		}
+		// 출력
+		System.out.print("  ");
+		op1Int.forEach(System.out::print);
+		if (isop1Decimal == true || isop2Decimal == true) {
+			System.out.print(".");
+		}
+		op1Frac.forEach(System.out::print);
+		System.out.println();
+		if (op.equals("add")) {
+			System.out.print("+ ");
+		} else if (op.equals("sub")) {
+			System.out.print("- ");
+		} else if (op.equals("mul")) {
+			System.out.print("* ");
+		}
+		op2Int.forEach(System.out::print);
+		if (isop1Decimal == true || isop2Decimal == true) {
+			System.out.print(".");
+		}
+		op2Frac.forEach(System.out::print);
+		System.out.println();
+		for (int i = 0; i < resultInt.size() + resultFrac.size() + 5; i++) {
+			System.out.print("-");
+		}
+		System.out.println();
+		if (overTen == 1 || resultInt.contains('-')) {
+			System.out.print(" ");
+		} else {
+			System.out.print("  ");
+		}
+		resultInt.forEach(System.out::print);
+		if (isop1Decimal == true || isop2Decimal == true) {
+			System.out.print(".");
+		}
+		resultFrac.forEach(System.out::print);
 	}
 }

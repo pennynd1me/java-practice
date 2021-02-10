@@ -25,22 +25,18 @@ public class CalculatorMain {
 		List<Character> resultInt = new ArrayList<>();
 		List<Character> resultFrac = new ArrayList<>();
 		// op1이나 op2가 0으로 시작한다면 없애버리기
-		if (op1.startsWith("0")) {
 			while (op1.startsWith("0")) {
 				if (op1.startsWith("0") != true) {
 					break;
 				}
 				op1 = op1.substring(op1.indexOf('0') + 1);
 			}
-		}
-		if (op2.startsWith("0")) {
 			while (op2.startsWith("0")) {
 				if (op2.startsWith("0") != true) {
 					break;
 				}
 				op2 = op2.substring(op2.indexOf('0') + 1);
 			}
-		}
 		// 정수형, 소수형인지 검증하여 list에 값 add하기
 		if (op1.contains(".")) {
 			for (int i = 0; i < op1.indexOf("."); i++) {

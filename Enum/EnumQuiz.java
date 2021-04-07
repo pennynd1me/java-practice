@@ -1,5 +1,3 @@
-import com.sun.istack.internal.Nullable;
-
 enum Days{
     월요일(1, "monday"),
     화요일(2, "tuesday"),
@@ -26,9 +24,16 @@ enum Days{
     }
 
     public Days valueOf(int days_int) {
+//        while (days_int > 7) {
+//            days_int -= 7;
+//        }
+        if (days_int > 7)
+            days_int = days_int % 7;
         Days days = null;
-        if (days_int == 1) {
-            days = Days.월요일;
+        for (int i = 1; i <= Days.values().length; i++) {
+            if (days_int == i) {
+                days = Days.values()[i-1];
+            }
         }
         return days;
     }
@@ -39,14 +44,16 @@ public class EnumQuiz {
     public static void main(String[] args) {
         Days days = Days.금요일;
         System.out.println(days.value_int());
-        System.out.println(days.value_eng());
+        System.out.println(days.value_eng() + "\n");
 
         String str = "월요일";
         Days daysValueOf = Days.valueOf(str);
+        System.out.println(daysValueOf.ordinal());
         System.out.println(daysValueOf.value_int());
-        System.out.println(daysValueOf.value_eng());
+        System.out.println(daysValueOf.value_eng() + "\n");
 
-        int integer = 1;
-        days.valueOf(integer);
+        int intdays = 9;
+        System.out.println(daysValueOf.valueOf(intdays));
+
     }
 }
